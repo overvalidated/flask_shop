@@ -1,2 +1,3 @@
-# flask_shop
-Учебный проект - docker-compose + web + databases
+# Небольшой учебный интернет-магазин
+
+Учебный проект - docker-compose + web + databases.  
