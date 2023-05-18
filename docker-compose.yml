@@ -1,0 +1,22 @@
+version: '3'
+
+# fuck nginx, all my homies use Flask development webserver
+services:
+  mysql_db:
+    image: "mysql:latest"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - ./databases:/docker-entrypoint-initdb.d
+  web-site:
+    build: "./web_site"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    links:
+      - "mysql_db:database"
+    volumes:
+      - ./web_site:/usr/src/app
+    ports:
+      - "5001:5000"

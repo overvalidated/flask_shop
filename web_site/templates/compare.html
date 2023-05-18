@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if products|length > 2 %}
+        <div class="container-lg">
+           <blockquote class="blockquote text-center">
+               <p>Добавьте телефоны к сравнению</p>
+           </blockquote>
+        </div>
+    {% else %}
+    {% endif %}
+{% endblock %}

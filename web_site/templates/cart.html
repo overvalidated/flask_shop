@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+      {% for product in products %}
+          <div class="row mb-3 justify-content-center">
+{#          <span class="border border-dark">#}
+              <div class="col-4">
+                  {{ product.phone_name }}
+              </div>
+              <div class="col-4">
+                  {{ product.price }}
+              </div>
+{#          </span>#}
+          </div>
+      {% endfor %}
+      <div class="row justify-content-center">
+          <div class="col-4">
+              Всего к оплате:
+          </div>
+          <div class="col-4">
+            {{ total_price }}
+          </div>
+      </div>
+   <div class="form-control">
+       <form class="text-center" method="post">
+           <button class="btn btn-outline-dark mt-auto" type="submit" name="task" value="proceed">Оформить заказ</button>
+           <button class="btn btn-outline-dark mt-auto" type="submit" name="task" value="clear">Очистить корзину</button>
+       </form>
+   </div>
+</div>
+{% endblock %}
